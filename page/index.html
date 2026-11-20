@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Day in One Page - Friday 20 November 2026</title>
+<!--
+  One board for Friday 20 November 2026, authored at 1600 x 1600 CSS px.
+  tools/render.mjs screenshots it at a device scale factor of 0.64, so the PNG lands on
+  exactly 1024 x 1024 px, the largest square the gate accepts.
+
+  The structure is a hierarchy, not a template: one lead at 132 px, three stories at 56 px,
+  five at 44 px, and the court's vote counted out beside the lead. Type only. No photographs,
+  no logos, no flags. A single accent colour marks the vote that decided the lead.
+-->
+<style>
+  :root{
+    --ground:#101319;
+    --ink:#f6f3ec;
+    --body:#cbc5b8;
+    --dim:#8d939f;
+    --rule:#2b313c;
+    --accent:#ff5a2b;
+    --pad:56px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1600px;height:1600px;background:var(--ground);overflow:hidden}
+  body{color:var(--ink);-webkit-font-smoothing:antialiased}
+  .page{
+    width:1600px;height:1600px;padding:44px var(--pad) 32px;
+    display:flex;flex-direction:column;background:var(--ground);
+  }
+  .page > *{flex:0 0 auto}
+
+  /* type roles */
+  .display{font-family:"C059","Century Schoolbook L","Liberation Serif",serif;font-weight:700}
+  .label{
+    font-family:"Nimbus Sans","Liberation Sans",Helvetica,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:0.2em;
+    color:var(--dim);font-size:21px;line-height:1.1;
+  }
+  .kick{
+    font-family:"Nimbus Sans","Liberation Sans",Helvetica,sans-serif;
+    font-weight:700;text-transform:uppercase;letter-spacing:0.15em;
+    color:var(--dim);line-height:1.2;
+  }
+  .deck{
+    font-family:"Nimbus Sans","Liberation Sans",Helvetica,sans-serif;
+    font-weight:400;color:var(--body);letter-spacing:0.002em;
+  }
+
+  /* masthead: what page this is, then the day it sums up */
+  .mast{display:flex;justify-content:space-between;align-items:baseline}
+  .dateline{
+    font-family:"Nimbus Sans","Liberation Sans",Helvetica,sans-serif;
+    font-weight:700;font-size:84px;line-height:1;letter-spacing:-0.03em;
+    margin-top:18px;white-space:nowrap;
+  }
+  .rule-a{height:5px;background:var(--ink);margin-top:18px}
+  .rule-b{height:1px;background:var(--rule);margin-top:5px}
+
+  /* lead: the verdict, and the margin it carried */
+  .lead{display:flex;gap:40px;margin-top:24px;align-items:stretch}
+  .lead-main{flex:1 1 auto;min-width:0}
+  .lead-kick{font-size:22px}
+  .lead-h{font-size:128px;line-height:0.92;letter-spacing:-0.028em;margin-top:12px;text-wrap:balance}
+  .lead-deck{font-size:31px;line-height:1.3;margin-top:16px;max-width:1060px}
+  .tally{
+    flex:0 0 244px;border-left:1px solid var(--rule);padding:2px 0 0 28px;
+    display:flex;flex-direction:column;justify-content:flex-start;
+  }
+  .tally-n{
+    font-family:"Nimbus Sans","Liberation Sans",Helvetica,sans-serif;
+    font-weight:700;font-size:88px;line-height:0.94;letter-spacing:-0.045em;
+    color:var(--accent);
+  }
+  .tally-l{font-size:17px;line-height:1.4;margin-top:12px;letter-spacing:0.16em}
+
+  /* three stories at half the lead's weight */
+  .second{
+    display:grid;grid-template-columns:repeat(3,1fr);column-gap:36px;
+    margin-top:22px;padding-top:18px;border-top:1px solid var(--ink);
+  }
+  .second h3{font-size:54px;line-height:1.0;letter-spacing:-0.02em;margin-top:10px;text-wrap:balance}
+  .second .deck{font-size:21px;line-height:1.32;margin-top:8px}
+
+  /* five stories, compact, two bands */
+  .grid{
+    display:grid;grid-template-columns:repeat(6,1fr);
+    margin-top:22px;padding-top:2px;border-top:1px solid var(--ink);flex:1 1 auto;
+    align-content:stretch;
+  }
+  .cell{padding:14px 22px 12px;display:flex;flex-direction:column}
+  .cell.w2{grid-column:span 2}
+  .cell.w3{grid-column:span 3}
+  .cell.first{border-left:0;padding-left:0}
+  .cell:not(.first){border-left:1px solid var(--rule)}
+  .cell .kick{font-size:18px;letter-spacing:0.18em}
+  .cell h3{font-size:46px;line-height:1.02;letter-spacing:-0.016em;margin-top:8px;text-wrap:balance}
+  .cell .deck{font-size:18px;line-height:1.28;margin-top:8px}
+  .cell.tall{border-top:1px solid var(--rule)}
+  .cell.tall.first{padding-left:0}
+
+  /* foot: the sources, and what this page is not */
+  .foot{
+    margin-top:auto;border-top:1px solid var(--rule);padding-top:11px;
+    display:flex;justify-content:space-between;align-items:baseline;
+  }
+  .foot .label{font-size:14px;letter-spacing:0.12em}
+</style>
+</head>
+<body>
+  <div class="page" id="page"></div>
+  <div id="audit" style="display:none"></div>
+  <div id="metrics" style="display:none"></div>
+  <script src="news.js"></script>
+</body>
+</html>
